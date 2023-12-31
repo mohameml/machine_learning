@@ -50,7 +50,6 @@ X_{21} & X_{22} & \ldots & X_{2n} \\
 \vdots & \vdots & \ddots & \vdots \\
 X_{m1} & X_{m2} & \ldots & X_{mn}
 \end{bmatrix} 
-
 $$
 
 #### Vecteur Cible ($Y$) :
