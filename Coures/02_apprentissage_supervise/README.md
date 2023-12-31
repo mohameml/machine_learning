@@ -113,7 +113,7 @@ L'objectif est de minimiser cette fonction de coût pendant le processus d'appre
 
 Formellement, la fonction de coût ($J$) peut être définie comme suit, en fonction du type de problème (régression, classification, etc.) :
 
-De manière générale, la fonction de coût ($J$) en apprentissage supervisé mesure l'écart entre les prédictions du modèle ($f_\theta(x^{(i)})$) et les valeurs réelles ($y^{(i)}$) pour chaque exemple d'entraînement. 
+De manière générale, la fonction de coût ($J$) en apprentissage supervisé mesure l'écart entre les prédictions du modèle $f_\theta(x^{(i)})$ et les valeurs réelles $y^{(i)}$ pour chaque exemple d'entraînement. 
 
 La forme précise de la fonction de coût dépend du type de problème que vous résolvez (régression, classification, etc.).
 
