@@ -134,8 +134,8 @@ La clé est d'ajuster les paramètres ($\theta$) du modèle pour minimiser cette
 
 - **Exemples :**
 
-    - **Problème de Régression :**
-        - **Fonction de Coût (Régression Linéaire) :**
+- **Problème de Régression :**
+    - **Fonction de Coût (Régression Linéaire) :**
 
 $$ 
 J(\theta) = \frac{1}{2m} \sum_{i=1}^{m} (h_\theta(x^{(i)}) - y^{(i)})^2 
@@ -143,19 +143,25 @@ $$
 
 où $m$ est le nombre d'exemples d'entraînement, $h_\theta(x^{(i)})$ est la prédiction du modèle pour l'exemple $i$, $y^{(i)}$ est la valeur réelle, et $\theta$ sont les paramètres du modèle.
 
-    - **Problème de Classification Binaire :**
-        - **Fonction de Coût (Régression Logistique) :**
+    
+- **Problème de Classification Binaire :**
+    - **Fonction de Coût (Régression Logistique) :**
         
-        $$ J(\theta) = -\frac{1}{m} \sum_{i=1}^{m} [y^{(i)} \log(h_\theta(x^{(i)})) + (1 - y^{(i)}) \log(1 - h_\theta(x^{(i)}))] $$
+$$ 
+J(\theta) = -\frac{1}{m} \sum_{i=1}^{m} [y^{(i)} \log(h_\theta(x^{(i)})) + (1 - y^{(i)}) \log(1 - h_\theta(x^{(i)}))] 
+$$
 
-          où $m$ est le nombre d'exemples d'entraînement, $h_\theta(x^{(i)})$ est la probabilité prédite par le modèle que l'exemple $i$ appartienne à la classe positive, $y^{(i)}$ est la valeur réelle (0 ou 1), et $\theta$ sont les paramètres du modèle.
 
-    - **Problème de Classification Multiclasse (Softmax) :**
-        - **Fonction de Coût (Softmax) :**
+où $m$ est le nombre d'exemples d'entraînement, $h_\theta(x^{(i)})$ est la probabilité prédite par le modèle que l'exemple $i$ appartienne à la classe positive, $y^{(i)}$ est la valeur réelle (0 ou 1), et $\theta$ sont les paramètres du modèle.
+
+- **Problème de Classification Multiclasse (Softmax) :**
+    - **Fonction de Coût (Softmax) :**
         
-        $$ J(\theta) = -\frac{1}{m} \sum_{i=1}^{m} \sum_{j=1}^{K} [y_k^{(i)} \log(h_\theta(x^{(i)})_k)] $$
+$$ 
+J(\theta) = -\frac{1}{m} \sum_{i=1}^{m} \sum_{j=1}^{K} [y_k^{(i)} \log(h_\theta(x^{(i)})_k)] 
+$$
 
-          où $m$ est le nombre d'exemples d'entraînement, $K$ est le nombre de classes, $h_\theta(x^{(i)})_k$ est la probabilité prédite par le modèle que l'exemple $i$ appartienne à la classe $k$, $y_k^{(i)}$ est 1 si l'exemple $i$ appartient à la classe $k$ et 0 sinon, et $\theta$ sont les paramètres du modèle.
+où $m$ est le nombre d'exemples d'entraînement, $K$ est le nombre de classes, $h_\theta(x^{(i)})_k$ est la probabilité prédite par le modèle que l'exemple $i$ appartienne à la classe $k$, $y_k^{(i)}$ est 1 si l'exemple $i$ appartient à la classe $k$ et 0 sinon, et $\theta$ sont les paramètres du modèle.
 
 
 
