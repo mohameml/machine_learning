@@ -136,10 +136,12 @@ La clé est d'ajuster les paramètres ($\theta$) du modèle pour minimiser cette
 
     - **Problème de Régression :**
         - **Fonction de Coût (Régression Linéaire) :**
-          
-        $$ J(\theta) = \frac{1}{2m} \sum_{i=1}^{m} (h_\theta(x^{(i)}) - y^{(i)})^2 $$
 
-          où $m$ est le nombre d'exemples d'entraînement, $h_\theta(x^{(i)})$ est la prédiction du modèle pour l'exemple $i$, $y^{(i)}$ est la valeur réelle, et $\theta$ sont les paramètres du modèle.
+$$ 
+J(\theta) = \frac{1}{2m} \sum_{i=1}^{m} (h_\theta(x^{(i)}) - y^{(i)})^2 
+$$
+
+où $m$ est le nombre d'exemples d'entraînement, $h_\theta(x^{(i)})$ est la prédiction du modèle pour l'exemple $i$, $y^{(i)}$ est la valeur réelle, et $\theta$ sont les paramètres du modèle.
 
     - **Problème de Classification Binaire :**
         - **Fonction de Coût (Régression Logistique) :**
