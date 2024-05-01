@@ -25,8 +25,7 @@ def reg_l1(
         the regularizing term
     """
     # ######## TODO (6) ########
-    return 0.
-    raise NotImplementedError("TODO (6)")
+    return 0.5*const*sum([abs(x_i) for x_i in x])
 
 
 def reg_l2(

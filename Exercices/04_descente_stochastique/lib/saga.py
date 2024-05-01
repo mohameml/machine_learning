@@ -9,7 +9,7 @@ import numpy as np
 
 def initialize_gradients_buffer(n: int, d: int) -> np.ndarray:
     # ####### TODO (5) ########
-    raise NotImplementedError("TODO (5)")
+    return np.zeros((n ,d))
 
 
 def saga_stepsize_start(
@@ -30,7 +30,7 @@ def saga_stepsize_start(
         (Approximate ?) Lipschitz constant of the gradient of the objective.
     """
     # ####### TODO (5) ########
-    raise NotImplementedError("TODO (5)")
+    return (1/L)*(np.sqrt(2*mu/n))
 
 
 def saga_stepsize(it: int, start: float) -> float:
@@ -45,7 +45,7 @@ def saga_stepsize(it: int, start: float) -> float:
         first-iteration step-size chosen
     """
     # ####### TODO (5) ########
-    raise NotImplementedError("TODO (5)")
+    return start / (1 + it)
 
 
 def saga_step(
@@ -60,4 +60,10 @@ def saga_step(
     Starting at ``x`` with a buffer ``gradients_buffer`` containing n past gradients, it outputs the next state of the algorithm as a 2-uple containing the next state and the updated buffer.
     """
     # ####### TODO (5) ########
-    raise NotImplementedError("TODO (5)")
+    n = gradients_buffer.shape[0]
+    i_rand =  np.random.randint(1 , n)
+    grad_f_i = grad(x , i_rand)
+    mean_grad = sum([alpha for alpha in gradients_buffer])*n
+    x_suiv  = x - stepsize*(grad_f_i - gradients_buffer[i_rand] + mean_grad) 
+    gradients_buffer[i_rand] = grad_f_i 
+    return (x_suiv , gradients_buffer)

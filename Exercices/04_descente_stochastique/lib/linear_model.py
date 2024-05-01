@@ -107,12 +107,23 @@ class LogisticRegression:
         else:  # return partial gradient associated the datapoint (A[i], b[i])
             # ######## TODO (1) #########
             output = np.zeros((n,))
+            coef = -b[i]/( 1+np.exp(b[i]*(np.dot(A[i] ,x))))
+            output = coef*A[i]  + self.l2*x
 
         return output
 
+
     def prox(self, x, stepsize):
         # ######## TODO (7) #########
-        p = x
+
+        def prox_abs(x , lam) :
+            """
+            Calcul le prox de la fonction valeur absolue 
+            """
+            sg_x = 1 if x >0 else -1 
+            return max(abs(x) - lam , 0)*sg_x
+
+        p = np.array([prox_abs(x_i , stepsize*self.l1) for x_i in x])
         return p
 
     def decision_function(self, A):
