@@ -24,8 +24,7 @@ def gd_stepsize_start(
         (Approximate ?) Lipschitz constant of the gradient of the objective.
     """
     # ####### TODO (2) ########
-    raise NotImplementedError("TODO (2)")
-
+    return 1/L 
 
 def gd_stepsize(it: int, start: float) -> float:
     """
@@ -39,7 +38,7 @@ def gd_stepsize(it: int, start: float) -> float:
         first-iteration step-size chosen
     """
     # ####### TODO (2) ########
-    raise NotImplementedError("TODO (2)")
+    return start
 
 
 def gd_step(
@@ -53,4 +52,5 @@ def gd_step(
     Starting at ``x``, it outputs the next state of the algorithm as a 1-uple containing the next state.
     """
     # ####### TODO (3) ########
-    raise NotImplementedError("TODO (3)")
+    
+    return (x - stepsize*grad(x , None) , )

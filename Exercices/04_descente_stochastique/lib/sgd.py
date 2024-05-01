@@ -25,7 +25,7 @@ def sgd_stepsize_start(
         (Approximate ?) Lipschitz constant of the gradient of the objective.
     """
     # ####### TODO (4) ########
-    raise NotImplementedError("TODO (4)")
+    return (1/L)*(np.sqrt(2*mu/n))
 
 
 def sgd_stepsize(it: int, start: float) -> float:
@@ -40,8 +40,7 @@ def sgd_stepsize(it: int, start: float) -> float:
         first-iteration step-size chosen
     """
     # ####### TODO (4) ########
-    raise NotImplementedError("TODO (4)")
-
+    return start / (1 + it)
 
 def sgd_step(
     x: np.ndarray,
@@ -54,4 +53,4 @@ def sgd_step(
     Starting at ``x``, it outputs the next state of the algorithm as a 1-uple containing the next state.
     """
     # ####### TODO (4) ########
-    raise NotImplementedError("TODO (4)")
+    return (x - grad(x , np.random.randint(1 ,len(x)))*stepsize , )
