@@ -25,7 +25,10 @@ def sgd_stepsize_start(
         (Approximate ?) Lipschitz constant of the gradient of the objective.
     """
     # ####### TODO (4) ########
-    return (1/L)*(np.sqrt(2*mu/n))
+    # beta = (1/mu) + 1
+    # gamma = L*(mu +1 ) / mu**2
+    # return beta / gamma
+    return 1/(2*(mu*n + L))
 
 
 def sgd_stepsize(it: int, start: float) -> float:
@@ -40,17 +43,22 @@ def sgd_stepsize(it: int, start: float) -> float:
         first-iteration step-size chosen
     """
     # ####### TODO (4) ########
-    return start / (1 + it)
+    return start/(1 + np.sqrt(it))
+
+
 
 def sgd_step(
     x: np.ndarray,
     grad: Callable[[np.ndarray, Optional[int]], np.ndarray],
     prox: Callable[[np.ndarray, float], np.ndarray],
     stepsize: float,
+    n : int 
 ) -> Tuple[np.ndarray]:
     """
     This function performs the step of this Stochastic Gradient Descent algorithm.
     Starting at ``x``, it outputs the next state of the algorithm as a 1-uple containing the next state.
+    
+     # on a ajouter n : dataset-size 
     """
     # ####### TODO (4) ########
-    return (x - grad(x , np.random.randint(1 ,len(x)))*stepsize , )
+    return (x - grad(x , np.random.randint(1 , n))*stepsize , )

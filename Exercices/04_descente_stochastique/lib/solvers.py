@@ -11,6 +11,7 @@ from .saga import (
 )
 
 
+
 def GD(
     x0: np.ndarray,
     grad: Callable[[np.ndarray, Optional[int]], np.ndarray],
@@ -113,7 +114,7 @@ def SGD(
         stepsize = sgd_stepsize(k, stepsize_0)
 
         # Update iterate
-        x, = sgd_step(x, grad, prox, stepsize)
+        x, = sgd_step(x, grad, prox, stepsize , n)
 
         # After looping through n data points, we consider that we
         # performed the FLOP equivalent of a GD step, so we stack
