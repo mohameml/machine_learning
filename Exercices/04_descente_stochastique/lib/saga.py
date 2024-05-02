@@ -30,7 +30,7 @@ def saga_stepsize_start(
         (Approximate ?) Lipschitz constant of the gradient of the objective.
     """
     # ####### TODO (5) ########
-    return (1/L)*(np.sqrt(2*mu/n))
+    return 1/(2*(mu*n + L))
 
 
 def saga_stepsize(it: int, start: float) -> float:
@@ -45,8 +45,8 @@ def saga_stepsize(it: int, start: float) -> float:
         first-iteration step-size chosen
     """
     # ####### TODO (5) ########
-    return start / (1 + it)
-
+    return start /(1+ np.sqrt(it))
+    
 
 def saga_step(
     x: np.ndarray,
@@ -63,7 +63,7 @@ def saga_step(
     n = gradients_buffer.shape[0]
     i_rand =  np.random.randint(1 , n)
     grad_f_i = grad(x , i_rand)
-    mean_grad = sum([alpha for alpha in gradients_buffer])*n
+    mean_grad = sum([alpha for alpha in gradients_buffer])/n
     x_suiv  = x - stepsize*(grad_f_i - gradients_buffer[i_rand] + mean_grad) 
     gradients_buffer[i_rand] = grad_f_i 
     return (x_suiv , gradients_buffer)
