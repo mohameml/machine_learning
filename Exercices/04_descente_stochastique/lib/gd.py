@@ -52,5 +52,5 @@ def gd_step(
     Starting at ``x``, it outputs the next state of the algorithm as a 1-uple containing the next state.
     """
     # ####### TODO (3) ########
-    
-    return (x - stepsize*grad(x , None) , )
+    x_suiv = prox(x - stepsize*grad(x , None) , stepsize)
+    return (x_suiv , )
