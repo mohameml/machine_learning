@@ -30,6 +30,8 @@ def saga_stepsize_start(
         (Approximate ?) Lipschitz constant of the gradient of the objective.
     """
     # ####### TODO (5) ########
+    if n == 0 :
+        return 0 
     return (1/L)*(np.sqrt(2*mu/n))
 
 
