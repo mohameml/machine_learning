@@ -47,6 +47,7 @@ def sgd_stepsize(it: int, start: float) -> float:
 
 
 
+
 def sgd_step(
     x: np.ndarray,
     grad: Callable[[np.ndarray, Optional[int]], np.ndarray],
@@ -58,7 +59,10 @@ def sgd_step(
     This function performs the step of this Stochastic Gradient Descent algorithm.
     Starting at ``x``, it outputs the next state of the algorithm as a 1-uple containing the next state.
     
-     # on a ajouter n : dataset-size 
     """
     # ####### TODO (4) ########
-    return (x - grad(x , np.random.randint(1 , n))*stepsize , )
+    x_suiv = prox(x - grad(x , np.random.randint(1 , n))*stepsize , stepsize)
+    return (x_suiv, )
+
+
+

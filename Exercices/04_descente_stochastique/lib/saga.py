@@ -65,6 +65,6 @@ def saga_step(
     i_rand =  np.random.randint(1 , n)
     grad_f_i = grad(x , i_rand)
     mean_grad = sum([alpha for alpha in gradients_buffer])/n
-    x_suiv  = x - stepsize*(grad_f_i - gradients_buffer[i_rand] + mean_grad) 
+    x_suiv  = prox(x - stepsize*(grad_f_i - gradients_buffer[i_rand] + mean_grad) , stepsize)
     gradients_buffer[i_rand] = grad_f_i 
     return (x_suiv , gradients_buffer)

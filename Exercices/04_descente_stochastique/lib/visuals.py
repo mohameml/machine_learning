@@ -85,7 +85,6 @@ def l2_regularization_plot(clf, A, b):
         
     coefs = np.array(coefs)
     plt.plot(coefs, linewidth=5)
-              
     plt.grid(False)
     plt.ylabel('Value of the different coordinates of x')
     plt.xlabel('log(l2)')
