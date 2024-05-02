@@ -1,2 +1,2 @@
 test:
-	python -m pytest ./tests_guide/
+	python3 -m pytest ./tests_guide
