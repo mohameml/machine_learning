@@ -343,4 +343,106 @@
 
 ## 4. **`all` && `any` :**
 
-## 5. **`mean` , `std` et `var`:**
+### 4.1 **`all():`**
+
+-   **Description :**
+
+    > La méthode `all` de NumPy est utilisée pour vérifier si tous les éléments d'un tableau NumPy sont vrais (ou si tous sont non nuls). Elle peut également être appliquée le long d'un axe spécifié.
+
+-   **Syntaxe (avec axis) :**
+
+    ```python
+    numpy.all(a, axis=None)
+    ```
+
+    -   `a` : Tableau NumPy pour lequel la vérification doit être effectuée.
+    -   `axis` : Spécifie l'axe le long duquel la vérification doit être effectuée. Par défaut, la vérification est effectuée sur tous les éléments du tableau.
+
+-   **Exemple :**
+
+    ```python
+    import numpy as np
+
+    # Création d'un tableau NumPy
+    arr = np.array([[True, True, False],
+                    [True, True, True]])
+
+    # Vérification si tous les éléments sont True
+    tout_vrai = np.all(arr)
+
+    # Vérification le long de l'axe 0 (par colonne)
+    tout_vrai_par_colonne = np.all(arr, axis=0)
+
+    # Vérification le long de l'axe 1 (par ligne)
+    tout_vrai_par_ligne = np.all(arr, axis=1)
+
+    print("Tableau original :")
+    print(arr)
+    print("\nTous les éléments sont-ils vrais ? :", tout_vrai)
+    print("Tous les éléments par colonne sont-ils vrais ? :", tout_vrai_par_colonne)
+    print("Tous les éléments par ligne sont-ils vrais ? :", tout_vrai_par_ligne)
+    ```
+
+    -   **Output :**
+
+        ```
+        Tableau original :
+        [[ True  True False]
+         [ True  True  True]]
+
+        Tous les éléments sont-ils vrais ? : False
+        Tous les éléments par colonne sont-ils vrais ? : [ True  True False]
+        Tous les éléments par ligne sont-ils vrais ? : [False  True]
+        ```
+
+### 4.2 **`any():`**
+
+-   **Description :**
+
+    > La méthode `any` de NumPy est utilisée pour vérifier si au moins un des éléments d'un tableau NumPy est vrai (ou non nul). Elle peut également être appliquée le long d'un axe spécifié.
+
+-   **Syntaxe (avec axis) :**
+
+    ```python
+    numpy.any(a, axis=None)
+    ```
+
+    -   `a` : Tableau NumPy pour lequel la vérification doit être effectuée.
+    -   `axis` : Spécifie l'axe le long duquel la vérification doit être effectuée. Par défaut, la vérification est effectuée sur tous les éléments du tableau.
+
+-   **Exemple :**
+
+    ```python
+    import numpy as np
+
+    # Création d'un tableau NumPy
+    arr = np.array([[False, False, False],
+                    [True, False, True]])
+
+    # Vérification si au moins un élément est True
+    au_moins_un_vrai = np.any(arr)
+
+    # Vérification le long de l'axe 0 (par colonne)
+    au_moins_un_vrai_par_colonne = np.any(arr, axis=0)
+
+    # Vérification le long de l'axe 1 (par ligne)
+    au_moins_un_vrai_par_ligne = np.any(arr, axis=1)
+
+    print("Tableau original :")
+    print(arr)
+    print("\nY a-t-il au moins un élément vrai ? :", au_moins_un_vrai)
+    print("Y a-t-il au moins un élément vrai par colonne ? :", au_moins_un_vrai_par_colonne)
+    print("Y a-t-il au moins un élément vrai par ligne ? :", au_moins_un_vrai_par_ligne)
+    ```
+
+    -   **Output :**
+
+        ```
+        Tableau original :
+        [[False False False]
+         [ True False  True]]
+
+        Y a-t-il au moins un élément vrai ? : True
+        Y a-t-il au moins un élément vrai par colonne ? : [ True False  True]
+        Y a-t-il au moins un élément vrai par ligne ? : [False  True]
+        ```
