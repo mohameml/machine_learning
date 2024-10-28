@@ -84,7 +84,7 @@
 
     > La fonction `subplot` dans Matplotlib est utilisée pour créer plusieurs sous-graphes (subplots) dans une seule figure. Cela permet de visualiser plusieurs graphiques côte à côte dans la même fenêtre, facilitant la comparaison et l'analyse des données.
 
--   \*_Syntaxe:_
+-   **Syntaxe:**
 
     ```python
     subplot(nrows, ncols, index)
@@ -145,3 +145,64 @@
     ```
 
 ![alt text](image-2.png)
+
+## 4. **Approche `POO`:**
+
+-   **Définition:**
+
+    -   L'approche orientée objet (POO) dans Matplotlib consiste à manipuler directement les objets de la figure et des axes pour créer et personnaliser les graphiques. Plutôt que d'utiliser des fonctions globales (comme `plt.plot()` ou `plt.title()`), on travaille avec les objets `Figure` et `Axes` créés explicitement, ce qui offre plus de contrôle et permet de gérer facilement plusieurs sous-graphiques dans une figure.
+
+    -   En POO avec Matplotlib, une **`Figure`** représente l'ensemble du graphique, et un **`Axes`** représente une seule zone de dessin dans cette figure, où les données sont tracées. Cette approche est particulièrement utile pour organiser des sous-graphiques complexes et pour contrôler les propriétés individuelles de chaque graphique.
+
+-   **Syntaxe:**
+
+    ```py
+    fig , ax = plt.subplots(2 , 1 , sharex=True)
+
+    ax[0].plot(x ,y , label="label 1")
+    ax[0].legend()
+
+    ax[1].plot(x , y_2 , label="label 2")
+    ax[1].legend()
+
+    plt.show()
+    ```
+
+    -   **Créer une Figure et des Axes** : Utilisez `plt.subplots()` pour initialiser une figure et y ajouter un ou plusieurs axes.
+    -   **Travailler avec les Axes** : Chaque objet `Axes` dispose de méthodes pour personnaliser les graphiques, ajouter des titres, des labels, des légendes, etc.
+    -   **Afficher la figure** : Utilisez `plt.show()` pour afficher la figure.
+
+-   **Exemple :**
+
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Génération des données
+x = np.linspace(0, 10, 100)
+y1 = np.sin(x)
+y2 = np.cos(x)
+
+# Création de la figure et des axes
+fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(8, 6))
+
+# Tracé sur le premier subplot (ax1)
+ax1.plot(x, y1, color="blue", label="sin(x)")
+ax1.set_title("Courbe de sin(x)")       # Titre pour le premier graphique
+ax1.set_xlabel("x")                     # Label de l'axe x
+ax1.set_ylabel("sin(x)")                # Label de l'axe y
+ax1.legend()                            # Ajout de la légende
+
+# Tracé sur le deuxième subplot (ax2)
+ax2.plot(x, y2, color="red", label="cos(x)")
+ax2.set_title("Courbe de cos(x)")       # Titre pour le deuxième graphique
+ax2.set_xlabel("x")                     # Label de l'axe x
+ax2.set_ylabel("cos(x)")                # Label de l'axe y
+ax2.legend()                            # Ajout de la légende
+
+# Affichage de la figure
+plt.tight_layout()  # Ajuste automatiquement l'espacement entre les subplots
+plt.show()
+```
+
+![alt text](image-3.png)
