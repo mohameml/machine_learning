@@ -1,67 +1,6 @@
-# cour 02 :
+# cour 03 : **Analyse des données**
 
-## 1. **Importation et Exportation de données:**
-
-> Pandas offre des méthodes très pratiques pour l'importation et l'exportation de données à partir et vers différents formats de fichiers. Ces méthodes commencent généralement par `read_*` pour l'importation et `to_*` pour l'exportation.
-
-### 1.1. **Importation de données : `read_csv`**
-
--   **Définition:**
-
-    > La méthode `read_csv()` est utilisée pour lire des fichiers CSV et charger les données dans un DataFrame Pandas.
-
--   **Syntaxe:**
-
-    ```python
-    pd.read_csv(filepath, sep=',', header=0, index_col=None, ...)
-    ```
-
-    -   **`filepath`** : Chemin du fichier ou URL.
-    -   **`sep`** : Délimiteur utilisé dans le fichier (par défaut, une virgule `,`).
-    -   **`header`** : Indique quelle ligne utiliser comme en-tête (par défaut, la première ligne).
-    -   **`index_col`** : Colonne(s) à utiliser comme index (facultatif).
-
--   **Exemple:**
-
-    ```python
-    import pandas as pd
-
-    # Lire un fichier CSV et le charger dans un DataFrame
-    df = pd.read_csv('data.csv')
-
-    # Afficher les premières lignes du DataFrame
-    print(df.head())
-    ```
-
-### 1.2. Exportation de données : `to_csv()`
-
--   **Définition:**
-
-    > La méthode `to_csv()` permet d'exporter un DataFrame en fichier CSV.
-
--   **Syntaxe:**
-
-    ```python
-    df.to_csv(filepath, sep=',', index=True, header=True, ...)
-    ```
-
-    -   **`filepath`** : Chemin où le fichier sera enregistré.
-    -   **`sep`** : Délimiteur utilisé pour séparer les valeurs (par défaut, une virgule `,`).
-    -   **`index`** : Si `True`, l'index est écrit dans le fichier (par défaut, `True`).
-    -   **`header`** : Si `True`, les noms de colonnes sont écrits (par défaut, `True`).
-
-#### RQ : **Autres Méthodes `read_*` et `to_*`**
-
-Pandas offre des méthodes similaires pour d'autres formats, notamment :
-
--   **`read_excel()`** / **`to_excel()`** pour les fichiers Excel.
--   **`read_json()`** / **`to_json()`** pour les fichiers JSON.
--   **`read_sql()`** / **`to_sql()`** pour les bases de données SQL.
--   **`read_html()`** / **`to_html()`** pour les fichiers HTML.
-
-## 2. **Analyse:**
-
-### 2.1 **Lecture:**
+## 1 **exploration du DataFrame:**
 
 -   L'analyse de données avec Pandas commence souvent par une exploration initiale du DataFrame pour comprendre sa structure et ses caractéristiques de base. Voici les méthodes couramment utilisées pour obtenir des résumés et des aperçus des données :
 
@@ -86,9 +25,9 @@ df.describe()
 
 ![alt text](image.png)
 
-### 2.2 **modification:**
+## 2 **modification du DataFrame:**
 
-#### 2.2.1 **La méthode `drop()`:**
+### 2.1 **La méthode `drop()`:**
 
 -   **Definition:**
 
@@ -136,7 +75,7 @@ df.describe()
     print(df_sans_bob)
     ```
 
-#### 2.2.2 **ajouter une colonne:**
+### 2.2 **ajouter une colonne:**
 
 -   **Définition:**
 
@@ -166,9 +105,9 @@ df.describe()
     print(df)
     ```
 
-### 2.3. **Analyse des données catégorielles:**
+## 3. **Analyse des données catégorielles:**
 
-#### 2.3.1 **La méthode **`value_counts()`**:**
+### 3.1 **La méthode **`value_counts()`**:**
 
 -   **Définition:**
 
@@ -227,7 +166,7 @@ df.describe()
     Name: Ville, dtype: int64
     ```
 
-#### 2.3.2 **La méthode **`groupby()`**:**
+### 3.2 **La méthode **`groupby()`**:**
 
 -   **Définition:**
 
@@ -268,69 +207,3 @@ df.groupby(["sex" , "pclass"]).mean()
 ![alt text](image-1.png)
 
 ![alt text](image-2.png)
-
-## 3. **clean data:**
-
-### 3.1. **Méthode `fillna()`:**
-
--   **Définition:**
-
-    > La méthode **`fillna()`** est utilisée pour remplacer les valeurs manquantes (NaN) dans un DataFrame ou une série par une valeur spécifiée ou par des méthodes d'interpolation.
-
--   **Syntaxe:**
-
-    ```python
-    DataFrame.fillna(value=None, method=None, axis=None, inplace=False, limit=None, downcast=None)
-    ```
-
-    -   **`value`** : Valeur ou dictionnaire de valeurs à utiliser pour remplir les NaN.
-    -   **`method`** : Méthode à utiliser pour remplir les NaN, comme `'ffill'` (forward fill) ou `'bfill'` (backward fill).
-    -   **`axis`** : 0 ou 1 pour spécifier si l'opération est appliquée sur les lignes ou les colonnes.
-    -   **`inplace`** : Si `True`, remplace les données dans le DataFrame d'origine.
-    -   **`limit`** : Limite le nombre de remplacements à effectuer.
-
--   **Exemple:**
-
-    ```python
-    import pandas as pd
-
-    # Création d'un DataFrame avec des valeurs manquantes
-    data = {
-        'Nom': ['Alice', 'Bob', 'Charlie', 'David'],
-        'Âge': [25, None, 30, None],
-        'Ville': ['Paris', 'Lyon', None, 'Toulouse']
-    }
-    df = pd.DataFrame(data)
-
-    # Remplacer les valeurs NaN par une valeur spécifiée
-    df_rempli = df.fillna(value={'Âge': 0, 'Ville': 'Inconnu'})
-    print("DataFrame après remplissage des NaN :")
-    print(df_rempli)
-    ```
-
-### 3.2. **Méthode `dropna()`:**
-
--   **Définition:**
-
-    > La méthode **`dropna()`** est utilisée pour supprimer les lignes ou colonnes qui contiennent des valeurs manquantes (NaN).
-
--   **Syntaxe:**
-
-    ```python
-    DataFrame.dropna(axis=0, how='any', thresh=None, subset=None, inplace=False)
-    ```
-
-    -   **`axis`** : 0 pour supprimer des lignes, 1 pour supprimer des colonnes.
-    -   **`how`** : `'any'` (supprime si au moins une valeur est NaN) ou `'all'` (supprime si toutes les valeurs sont NaN).
-    -   **`thresh`** : Nombre minimum de valeurs non manquantes requises pour ne pas supprimer la ligne/colonne.
-    -   **`subset`** : Liste de colonnes à considérer pour déterminer si une ligne doit être supprimée.
-    -   **`inplace`** : Si `True`, effectue l'opération sur le DataFrame d'origine.
-
--   **Exemple:**
-
-    ```python
-    # Suppression des lignes contenant des valeurs NaN
-    df_sans_na = df.dropna()
-    print("\nDataFrame après suppression des lignes contenant des NaN :")
-    print(df_sans_na)
-    ```
