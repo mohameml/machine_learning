@@ -174,35 +174,35 @@
 
 -   **Exemple :**
 
-```python
-import matplotlib.pyplot as plt
-import numpy as np
+    ```python
+    import matplotlib.pyplot as plt
+    import numpy as np
 
-# Génération des données
-x = np.linspace(0, 10, 100)
-y1 = np.sin(x)
-y2 = np.cos(x)
+    # Génération des données
+    x = np.linspace(0, 10, 100)
+    y1 = np.sin(x)
+    y2 = np.cos(x)
 
-# Création de la figure et des axes
-fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(8, 6))
+    # Création de la figure et des axes
+    fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(8, 6))
 
-# Tracé sur le premier subplot (ax1)
-ax1.plot(x, y1, color="blue", label="sin(x)")
-ax1.set_title("Courbe de sin(x)")       # Titre pour le premier graphique
-ax1.set_xlabel("x")                     # Label de l'axe x
-ax1.set_ylabel("sin(x)")                # Label de l'axe y
-ax1.legend()                            # Ajout de la légende
+    # Tracé sur le premier subplot (ax1)
+    ax1.plot(x, y1, color="blue", label="sin(x)")
+    ax1.set_title("Courbe de sin(x)")       # Titre pour le premier graphique
+    ax1.set_xlabel("x")                     # Label de l'axe x
+    ax1.set_ylabel("sin(x)")                # Label de l'axe y
+    ax1.legend()                            # Ajout de la légende
 
-# Tracé sur le deuxième subplot (ax2)
-ax2.plot(x, y2, color="red", label="cos(x)")
-ax2.set_title("Courbe de cos(x)")       # Titre pour le deuxième graphique
-ax2.set_xlabel("x")                     # Label de l'axe x
-ax2.set_ylabel("cos(x)")                # Label de l'axe y
-ax2.legend()                            # Ajout de la légende
+    # Tracé sur le deuxième subplot (ax2)
+    ax2.plot(x, y2, color="red", label="cos(x)")
+    ax2.set_title("Courbe de cos(x)")       # Titre pour le deuxième graphique
+    ax2.set_xlabel("x")                     # Label de l'axe x
+    ax2.set_ylabel("cos(x)")                # Label de l'axe y
+    ax2.legend()                            # Ajout de la légende
 
-# Affichage de la figure
-plt.tight_layout()  # Ajuste automatiquement l'espacement entre les subplots
-plt.show()
-```
+    # Affichage de la figure
+    plt.tight_layout()  # Ajuste automatiquement l'espacement entre les subplots
+    plt.show()
+    ```
 
-![alt text](image-3.png)
+    ![alt text](image-3.png)

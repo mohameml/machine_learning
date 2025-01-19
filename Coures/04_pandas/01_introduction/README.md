@@ -25,9 +25,10 @@
     import pandas as pd
 
     # Créer un DataFrame à partir d'un dictionnaire
-    data = {'Nom': ['Alice', 'Bob', 'Charlie'],
-            'Âge': [25, 30, 35],
-            'Ville': ['Paris', 'Lyon', 'Marseille']}
+    data = {
+        'Nom': ['Alice', 'Bob', 'Charlie'],
+        'Âge': [25, 30, 35],
+        'Ville': ['Paris', 'Lyon', 'Marseille']}
     df = pd.DataFrame(data)
 
     # Afficher le DataFrame
