@@ -13,7 +13,7 @@
     # col : 
     df['col_name'] # type series 
     df[['col_name']]  # type df
-    df.col_name
+    df.col_name 
     df[['col1' , 'col2']]
 
     # row : 
