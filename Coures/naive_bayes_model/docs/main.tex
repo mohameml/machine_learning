@@ -1,0 +1,145 @@
+\documentclass[12pt,a4paper]{article}
+
+% ---------- Packages ----------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{physics}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{caption}
+\usepackage{bm}  % pour les vecteurs en gras
+\usepackage{lipsum}
+
+% ---------- Mise en page ----------
+\geometry{margin=2.5cm}
+\setlength{\parskip}{0.6em}
+\setlength{\parindent}{0pt}
+
+% ---------- Hyperliens ----------
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=teal,
+    citecolor=purple
+}
+
+% ---------- Titre ----------
+\title{\textbf{Classifieur Naïve Bayes}}
+\author{Mohamed Ahmed Mohamed Lemine}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+% ---------- Abstract ----------
+\begin{abstract}
+Le classifieur \textit{Naïve Bayes} est un modèle probabiliste fondé sur le théorème de Bayes, largement utilisé pour les tâches de classification supervisée. 
+Malgré son hypothèse simplificatrice d’indépendance conditionnelle entre les variables explicatives, il offre des performances remarquablement efficaces sur de nombreux problèmes, notamment dans le traitement automatique du langage et la détection de spam.  
+Ce document présente une étude mathématique détaillée du modèle, depuis la formulation du théorème de Bayes jusqu’à la dérivation complète des équations du classifieur, incluant les variantes multinomiale, gaussienne et bernoullienne.  
+L’objectif est de comprendre rigoureusement les fondements théoriques de la méthode avant son implémentation \textit{from scratch} en Python.
+\end{abstract}
+
+\vspace{1cm}
+
+% ---------- Sommaire ----------
+\tableofcontents
+\newpage
+
+% ============================================================
+\section{Introduction}
+% ============================================================
+
+Le modèle \textit{Naïve Bayes} repose sur le principe fondamental de la probabilité conditionnelle et sur le théorème de Bayes. 
+Son originalité réside dans l’hypothèse d’indépendance conditionnelle entre les variables explicatives données la classe, ce qui permet une simplification analytique considérable du calcul des probabilités.  
+Dans cette partie, nous introduisons le contexte, les motivations, ainsi que les applications typiques de cette méthode.
+
+\subsection{Motivations et contexte}
+% Exemple de contenu :
+Le classifieur \textit{Naïve Bayes} est particulièrement prisé dans les situations où les données sont de grande dimension et où les relations entre variables peuvent être approximées par des dépendances faibles. 
+Son efficacité algorithmique et sa simplicité d’interprétation en font un outil de base dans la panoplie du data scientist.
+
+\subsection{Applications}
+Parmi les applications classiques :
+\begin{itemize}
+    \item Détection de spam (analyse de texte),
+    \item Classification de documents ou d’émotions,
+    \item Diagnostic médical probabiliste,
+    \item Reconnaissance de visages ou de sons.
+\end{itemize}
+
+% ============================================================
+\section{Fondements théoriques}
+% ============================================================
+
+\subsection{Théorème de Bayes}
+On rappelle le théorème fondamental :
+\begin{equation}
+    P(C_k \mid X) = \frac{P(X \mid C_k) P(C_k)}{P(X)}
+\end{equation}
+où :
+\begin{itemize}
+    \item \( P(C_k \mid X) \) est la probabilité \textit{a posteriori} que l’échantillon \( X \) appartienne à la classe \( C_k \),
+    \item \( P(X \mid C_k) \) est la vraisemblance des données sous la classe \( C_k \),
+    \item \( P(C_k) \) est la probabilité \textit{a priori} de la classe \( C_k \),
+    \item \( P(X) \) est la probabilité totale des données.
+\end{itemize}
+
+\subsection{Hypothèse d’indépendance conditionnelle}
+L’hypothèse clé du modèle \textit{Naïve Bayes} suppose que, conditionnellement à la classe, les variables explicatives sont indépendantes :
+\begin{equation}
+    P(X \mid C_k) = \prod_{i=1}^{n} P(x_i \mid C_k)
+\end{equation}
+
+Cette simplification réduit considérablement la complexité du modèle et permet une estimation efficace à partir de petits ensembles de données.
+
+\newpage
+
+% ============================================================
+\section{Formulation du classifieur Naïve Bayes}
+% ============================================================
+
+\subsection{Règle de décision}
+La classe prédite est celle qui maximise la probabilité \textit{a posteriori} :
+\begin{equation}
+    \hat{C} = \arg\max_{C_k} P(C_k \mid X)
+\end{equation}
+En substituant la formule de Bayes et en ignorant le dénominateur constant \( P(X) \), on obtient :
+\begin{equation}
+    \hat{C} = \arg\max_{C_k} P(C_k) \prod_{i=1}^{n} P(x_i \mid C_k)
+\end{equation}
+Dans la pratique, pour éviter les problèmes de sous-flux numérique, on travaille avec les logarithmes :
+\begin{equation}
+    \hat{C} = \arg\max_{C_k} \left[ \log P(C_k) + \sum_{i=1}^{n} \log P(x_i \mid C_k) \right]
+\end{equation}
+
+% ============================================================
+\section{Variantes du modèle}
+% ============================================================
+
+\subsection{Modèle Gaussien}
+\subsection{Modèle Multinomial}
+\subsection{Modèle Bernoulli}
+
+% ============================================================
+\section{Estimation des paramètres}
+% ============================================================
+
+% ============================================================
+\section{Exemple numérique illustratif}
+% ============================================================
+
+% ============================================================
+\section{Avantages et limites}
+% ============================================================
+
+% ============================================================
+\section{Conclusion}
+% ============================================================
+
+\end{document}

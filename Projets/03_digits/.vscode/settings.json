@@ -1,0 +1,38 @@
+{
+	"latex-workshop.latex.toolchain": "wsl",
+	"latex-workshop.latex.outDir": "./out",
+	"latex-workshop.latex.recipes": [
+		{
+			"name": "latexmk (pdf)",
+			"tools": ["latexmk"]
+		}
+	],
+	"latex-workshop.latex.tools": [
+		{
+			"name": "latexmk",
+			"command": "latexmk",
+			"args": [
+				"-synctex=1",
+				"-interaction=nonstopmode",
+				"-file-line-error",
+				"-pdf",
+				"%DOC%"
+			]
+		}
+	],
+	"latex-workshop.view.pdf.viewer": "tab",
+	"latex-workshop.docker.enabled": false,
+	"latex-workshop.latex.autoBuild.run": "onSave",
+	"latex-workshop.latex.clean.fileTypes": [
+		"*.aux",
+		"*.bbl",
+		"*.blg",
+		"*.fdb_latexmk",
+		"*.fls",
+		"*.log",
+		"*.synctex.gz",
+		"*.toc",
+		"*.out"
+	],
+	"latex-workshop.latex.autoClean.run": "onBuilt"
+}

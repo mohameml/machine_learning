@@ -1,0 +1,17 @@
+\babel@toc {french}{}\relax 
+\contentsline {section}{\numberline {1}Introduction}{2}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Définition d'un neurone}{2}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Les fonctions d'activation}{2}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Généralisation : le Perceptron Multicouche (MLP)}{5}{subsection.1.3}%
+\contentsline {section}{\numberline {2}Fonction de coût}{7}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Erreur quadratique moyenne (MSE)}{7}{subsection.2.1}%
+\contentsline {section}{\numberline {3}Algorithme de Backpropagation}{9}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Définition}{9}{subsection.3.1}%
+\contentsline {paragraph}{Gradients par couche.}{10}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Propriétés fondamentales}{10}{subsection.3.2}%
+\contentsline {paragraph}{Motivation.}{10}{subsection.3.2}%
+\contentsline {paragraph}{Définition de $\delta ^{(l)}$.}{11}{subsection.3.2}%
+\contentsline {paragraph}{RQ : Cas d'un mini-lot (batch) de taille $m$}{15}{AlgoLine.1.19}%
+\contentsline {section}{\numberline {4}Alog }{16}{section.4}%
+\contentsline {section}{\numberline {5}Implémentation en Python}{17}{section.5}%
+\contentsline {section}{\numberline {6}Application : MNIST}{18}{section.6}%

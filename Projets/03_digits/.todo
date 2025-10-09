@@ -1,0 +1,16 @@
+
+## **Docs:**
+
+-  add softmax function 
+- add cross-entropy function 
+- add algo backpropagation for mini-batch SGD 
+- preuve : in L layer : softmax with cross-entropy give : delat_L = y - y^ ?? 
+- add impl in docs 
+- add the result finale in code with graph 
+- add bibloigrap : link to paper , link to github 
+
+## **Code :**
+
+- find the bug in code 
+- try with pytorch 
+- viz the Loss function in train 
